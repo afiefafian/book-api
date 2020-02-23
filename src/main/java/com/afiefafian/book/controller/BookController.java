@@ -13,7 +13,7 @@ import java.util.Optional;
 @RequestMapping("/api/books")
 public class BookController {
     @Autowired
-    private  BookRepository BookRepository;
+    private BookRepository BookRepository;
 
     @GetMapping
     public Iterable<Book> getBooks() {
@@ -21,7 +21,7 @@ public class BookController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Book> getBookById(@PathVariable("id") Long id) {
+    public Optional<Book> getBookById(@PathVariable("id") String id) {
         return BookRepository.findById(id);
     }
 
@@ -32,7 +32,7 @@ public class BookController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteBookById(@PathVariable("id") Long id) {
+    public void deleteBookById(@PathVariable("id") String id) {
         BookRepository.deleteById(id);
     }
 
